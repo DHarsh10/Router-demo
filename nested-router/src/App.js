@@ -2,30 +2,31 @@ import './App.css';
 import Home from './components/Home';
 import Links from './components/Links';
 import About from './components/About';
-import LinkDesc from './components/LinkDesc'
+import Navbar from './components/Navbar';
 
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import TabA from './components/linksComponents/TabA';
+import TabB from './components/linksComponents/TabB';
+import TabC from './components/linksComponents/TabC';
+import TabD from './components/linksComponents/TabD';
+import LinkDesc from './components/LinkDesc';
 
 function App() {
   return (
     <div>
-      <nav>
-        <button>
-          <Link to="/">Home</Link>
-        </button>
-        <button>
-          <Link to="/Links">Links</Link>
-        </button>
-        <button>
-          <Link to="/About">About</Link>
-        </button>
-      </nav>
-
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/Links' element={<Links />} />
-        <Route path='/Links/:id' element={<LinkDesc />} />
-        <Route path='/About' element={<About />} />
+        <Route path="/" element={<Navbar />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/Links/:id' element={<LinkDesc />} />
+          <Route path='/Links' element={<Links />}>
+
+            <Route path='/Links' element={<TabA />} />
+            <Route path='/Links/Tab-B' element={<TabB />} />
+            <Route path='/Links/Tab-C' element={<TabC />} />
+            <Route path='/Links/Tab-D' element={<TabD />} />
+          </Route>
+          <Route path='/About' element={<About />} />
+        </Route>
       </Routes>
     </div>
   );

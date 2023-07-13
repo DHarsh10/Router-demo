@@ -23,3 +23,7 @@ nav button{
     width: fit-content;
     cursor: pointer;
 }
+
+.linksNav{
+  margin-top: 20px;
+}
